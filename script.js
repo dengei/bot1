@@ -1,75 +1,27 @@
-/* --- Основные настройки --- */
-:root {
-    --bg-color: #1a1a2e;
-    --component-bg: #2a2a4a;
-    --btn-dark-bg: #33334c;
-    --text-color: #ffffff;
-    --text-light-gray: #a0a0b8;
-    --blue: #4e4edb;
-    --teal: #2dd8a3;
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const timerElement = document.getElementById("timer");
+    let timerSeconds = 26;
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    box-sizing: border-box;
-}
+    // Инициализация Telegram Mini App
+    try {
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // Расширяем приложение на весь экран
+    } catch (e) {
+        console.error("Telegram WebApp script not found.", e);
+    }
+    
+    const updateTimer = () => {
+        if (timerSeconds >= 0) {
+            const seconds = String(timerSeconds).padStart(2, '0');
+            timerElement.textContent = `00:${seconds}`;
+            timerSeconds--;
+        } else {
+            clearInterval(timerInterval);
+            timerElement.textContent = "00:00";
+            // Здесь можно будет добавить логику, что делать, когда время вышло
+        }
+    };
 
-/* --- Контейнер и общие стили --- */
-.app-container {
-    flex-grow: 1;
-    padding-bottom: 70px; /* Отступ для футера */
-}
-
-button {
-    border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: transparent;
-    color: var(--text-color);
-    font-weight: bold;
-}
-
-/* --- Хедер --- */
-.header { display: flex; justify-content: flex-end; align-items: center; margin-bottom: 15px; }
-.profile-btn { background-color: var(--blue); padding: 8px 12px; }
-
-/* --- Баннер --- */
-.banner { background-color: var(--component-bg); border-radius: 12px; text-align: center; padding: 15px; margin-bottom: 20px; }
-.banner-title { font-size: 18px; color: var(--blue); margin: 0 0 5px 0; }
-.banner-subtitle { font-size: 14px; color: var(--text-light-gray); margin: 0; font-weight: normal; }
-
-/* --- Таймер --- */
-.timer { font-size: 48px; text-align: center; margin: 25px 0; }
-
-/* --- Игровое состояние --- */
-.game-state { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 10px;}
-.side { display: flex; flex-direction: column; align-items: center; }
-.multiplier { font-size: 16px; margin-bottom: 8px; }
-.left-side .multiplier { color: var(--teal); }
-.right-side .multiplier { color: var(--blue); }
-.side-btn { padding: 8px 35px; color: white; }
-
-/* --- Цвета кнопок --- */
-.green-btn { background-color: var(--teal); }
-.blue-btn { background-color: var(--blue); }
-
-/* --- Область ставки --- */
-.bet-area { background-color: var(--component-bg); border-radius: 12px; padding: 15px; margin-bottom: 20px; }
-.amount-control { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-.control-btn { background-color: var(--btn-dark-bg); font-size: 24px; width: 45px; height: 45px; border-radius: 8px; }
-.bet-amount-wrapper { text-align: center; }
-.bet-amount { font-size: 24px; }
-.currency { font-weight: normal; color: var(--text-light-gray); margin-left: 5px; }
-.multiplier-controls { display: flex; justify-content: space-between; gap: 10px; }
-.mod-btn { background-color: var(--btn-dark-bg); flex-grow: 1; padding: 12px; }
-
-/* --- Кнопки "Поставить" --- */
-.place-bet-buttons { display: flex; gap: 10px; margin-bottom: 20px;
+    // Запускаем таймер с интервалом в 1 секунду
+    const timerInterval = setInterval(updateTimer, 1000);
+});
