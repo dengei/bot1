@@ -1,4 +1,4 @@
-/* CSS переменные для цветов */
+/* --- Основные настройки --- */
 :root {
     --bg-color: #1a1a2e;
     --component-bg: #2a2a4a;
@@ -17,66 +17,65 @@ body {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
+/* --- Контейнер и общие стили --- */
 .app-container {
     flex-grow: 1;
+    padding-bottom: 70px; /* Отступ для футера */
 }
 
-/* Общие стили для кнопок */
 button {
     border: none;
     border-radius: 10px;
-    padding: 10px 15px;
     font-size: 14px;
     cursor: pointer;
     background-color: transparent;
     color: var(--text-color);
+    font-weight: bold;
 }
 
-/* Хедер */
-.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-.close-btn { background-color: var(--btn-dark-bg); }
-.profile-btn { background-color: var(--blue); }
+/* --- Хедер --- */
+.header { display: flex; justify-content: flex-end; align-items: center; margin-bottom: 15px; }
+.profile-btn { background-color: var(--blue); padding: 8px 12px; }
 
-/* Баннер */
+/* --- Баннер --- */
 .banner { background-color: var(--component-bg); border-radius: 12px; text-align: center; padding: 15px; margin-bottom: 20px; }
-.banner-title { font-size: 18px; font-weight: bold; color: var(--blue); margin: 0 0 5px 0; }
-.banner-subtitle { font-size: 14px; color: var(--text-light-gray); margin: 0; }
+.banner-title { font-size: 18px; color: var(--blue); margin: 0 0 5px 0; }
+.banner-subtitle { font-size: 14px; color: var(--text-light-gray); margin: 0; font-weight: normal; }
 
-/* Таймер */
-.timer { font-size: 48px; font-weight: bold; text-align: center; margin: 25px 0; }
+/* --- Таймер --- */
+.timer { font-size: 48px; text-align: center; margin: 25px 0; }
 
-/* Игровое состояние */
-.game-state { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+/* --- Игровое состояние --- */
+.game-state { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 10px;}
 .side { display: flex; flex-direction: column; align-items: center; }
 .multiplier { font-size: 16px; margin-bottom: 8px; }
 .left-side .multiplier { color: var(--teal); }
 .right-side .multiplier { color: var(--blue); }
-.side-btn { padding: 8px 35px; color: white; font-weight: bold; }
+.side-btn { padding: 8px 35px; color: white; }
 
-/* Цвета кнопок */
+/* --- Цвета кнопок --- */
 .green-btn { background-color: var(--teal); }
 .blue-btn { background-color: var(--blue); }
 
-/* Область ставки */
+/* --- Область ставки --- */
 .bet-area { background-color: var(--component-bg); border-radius: 12px; padding: 15px; margin-bottom: 20px; }
 .amount-control { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-.control-btn { background-color: var(--btn-dark-bg); font-size: 20px; width: 40px; }
-.bet-amount { font-size: 24px; font-weight: bold; }
-.currency { font-weight: normal; color: var(--text-light-gray); }
-.multiplier-controls { display: flex; justify-content: space-between; }
-.mod-btn { background-color: var(--btn-dark-bg); flex-grow: 1; margin: 0 5px; }
-.mod-btn:first-child { margin-left: 0; }
-.mod-btn:last-child { margin-right: 0; }
+.control-btn { background-color: var(--btn-dark-bg); font-size: 24px; width: 45px; height: 45px; border-radius: 8px; }
+.bet-amount-wrapper { text-align: center; }
+.bet-amount { font-size: 24px; }
+.currency { font-weight: normal; color: var(--text-light-gray); margin-left: 5px; }
+.multiplier-controls { display: flex; justify-content: space-between; gap: 10px; }
+.mod-btn { background-color: var(--btn-dark-bg); flex-grow: 1; padding: 12px; }
 
-/* Кнопки "Поставить" */
+/* --- Кнопки "Поставить" --- */
 .place-bet-buttons { display: flex; gap: 10px; margin-bottom: 20px; }
-.place-bet-btn { flex-grow: 1; padding: 15px; font-size: 16px; font-weight: bold; }
+.place-bet-btn { flex-grow: 1; padding: 15px; font-size: 16px; }
 
-/* Футер */
+/* --- Футер --- */
 .footer {
     display: flex;
     justify-content: space-around;
@@ -89,5 +88,5 @@ button {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
-.footer button { color: var(--text-light-gray); }
-.footer button.active { color: var(--text-color); font-weight: bold; }
+.footer-btn { display: flex; flex-direction: column; align-items: center; color: var(--text-light-gray); }
+.footer-btn.active { color: var(--text-color); }
