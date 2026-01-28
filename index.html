@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TON Battle</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Скрипт для интеграции с Telegram -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Хедер -->
+        <header class="header">
+            <button class="close-btn">X Закрыть</button>
+            <button class="profile-btn">UQDhzkaBOB...</button>
+        </header>
+
+        <!-- Баннер -->
+        <div class="banner">
+            <p class="banner-title">Раздача 10.000 TON!</p>
+            <p class="banner-subtitle">Выполни задания и забирай приз!</p>
+        </div>
+
+        <!-- Таймер -->
+        <div class="timer" id="timer">00:26</div>
+
+        <!-- Игровое состояние -->
+        <div class="game-state">
+            <div class="side left-side">
+                <span class="multiplier">X1.33</span>
+                <button class="side-btn green-btn">75%</button>
+            </div>
+            <div class="side right-side">
+                <span class="multiplier">X4.00</span>
+                <button class="side-btn blue-btn">25%</button>
+            </div>
+        </div>
+
+        <!-- Область ставки -->
+        <div class="bet-area">
+            <div class="amount-control">
+                <button class="control-btn">-</button>
+                <span class="bet-amount">0.00 <span class="currency">TON</span></span>
+                <button class="control-btn">+</button>
+            </div>
+            <div class="multiplier-controls">
+                <button class="mod-btn">X2</button>
+                <button class="mod-btn">1/2</button>
+                <button class="mod-btn">MAX</button>
+            </div>
+        </div>
+
+        <!-- Кнопки "Поставить" -->
+        <div class="place-bet-buttons">
+            <button class="place-bet-btn green-btn">Поставить</button>
+            <button class="place-bet-btn blue-btn">Поставить</button>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <button>Стейкинг</button>
+        <button class="active">Битва</button>
+        <button>Профиль</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
